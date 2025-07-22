@@ -1,35 +1,49 @@
-
 import 'dart:convert';
-
 
 class WifiNetwork {
   final String ssid;
-  final String passwordEncrypted;
+  final String encryptedPassword;
   final double latitude;
   final double longitude;
+  final String? bssid;
+  final int? signalLevel;
 
   WifiNetwork({
     required this.ssid,
-    required this.passwordEncrypted,
+    required this.encryptedPassword,
     required this.latitude,
     required this.longitude,
+    this.bssid,
+    this.signalLevel,
   });
 
   factory WifiNetwork.fromJson(Map<String, dynamic> json) {
     return WifiNetwork(
-      ssid: json['ssid'],
-      passwordEncrypted: json['password_encrypted'],
-      latitude: json['location']['latitude'],
-      longitude: json['location']['longitude'],
+      ssid: json['ssid'] ?? '',
+      encryptedPassword: json['password'] ?? '',
+      latitude: (json['latitude'] ?? 0.0).toDouble(),
+      longitude: (json['longitude'] ?? 0.0).toDouble(),
+      bssid: json['bssid'],
+      signalLevel: json['signalLevel'],
     );
   }
 
   String get decryptedPassword {
     try {
-      return utf8.decode(base64.decode(passwordEncrypted));
+      return utf8.decode(base64.decode(encryptedPassword));
     } catch (e) {
-      // Handle potential decoding errors gracefully
-      return "Error decoding password";
+      return encryptedPassword; // Fallback if not Base64 encoded
     }
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'ssid': ssid,
+      'password': encryptedPassword,
+      'latitude': latitude,
+      'longitude': longitude,
+      'bssid': bssid,
+      'signalLevel': signalLevel,
+    };
   }
 }

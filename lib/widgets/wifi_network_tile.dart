@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/wifi_network.dart';
 
 class WiFiNetworkTile extends StatelessWidget {
   final String ssid;

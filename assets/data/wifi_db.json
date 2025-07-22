@@ -18,5 +18,21 @@
     "ssid": "InderHome_5G",
     "password_encrypted": "SW5kZXIxMjM0NQ==",
     "location": { "latitude": 19.105870, "longitude": 72.869210 }
-  }
+  },
+  {  "ssid": "Advaith",
+     "password_encrypted": "c2VjcmV0MTIz",
+  "location": {"latitude": 17.385044, "longitude": 78.486671}
+},
+{
+  "ssid": "Dhana202",
+     "password_encrypted": "c2VjcmV0MTIz",
+  "location": {"latitude": 17.385044, "longitude": 78.486671}
+},
+{
+  "ssid": "laasya-nidhi",
+     "password_encrypted": "c2VjcmV0MTIz",
+  "location": {"latitude": 17.385044, "longitude": 78.486671}
+}
+
+
 ]

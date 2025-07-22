@@ -39,6 +39,7 @@ class WifiConnectApp extends StatelessWidget {
           ),
         ),
       ),
+      debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
     );
   }

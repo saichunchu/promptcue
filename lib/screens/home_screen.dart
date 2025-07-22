@@ -709,7 +709,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       case ScanState.connecting:
         return Column(
           children: [
-            Container(
+            SizedBox(
               width: 60,
               height: 60,
               child: CircularProgressIndicator(
